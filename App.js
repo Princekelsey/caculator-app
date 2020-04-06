@@ -10,7 +10,7 @@ const App = () => {
   });
 
   const inputButtons = [
-    ['CLEAR', 'DEL'],
+    ['CLEAR', 'KM', 'MILES', 'DEL'],
     [7, 8, 9, '÷'],
     [4, 5, 6, '×'],
     [1, 2, 3, '-'],
@@ -26,11 +26,12 @@ const App = () => {
 
     setState({
       ...caluculatorState,
+      displayValue: '',
       result: calculated % 1 === 0 ? calculated : calculated.toFixed(2),
     });
   };
 
-  const handlePress = value => {
+  const handlePress = (value) => {
     switch (value) {
       case 'DEL':
         if (displayValue === '') return;
@@ -75,9 +76,9 @@ const App = () => {
         if (
           displayValue === '' ||
           last === '+' ||
-          last === '×' ||
+          last === '*' ||
           last === '-' ||
-          last === '÷'
+          last === '/'
         )
           return;
         calculateInput();
@@ -98,6 +99,73 @@ const App = () => {
         });
 
         break;
+      case 'MILES':
+        const lastValue = displayValue.split('').pop();
+
+        if (
+          (displayValue === '' && result === 0) ||
+          lastValue === '+' ||
+          lastValue === '*' ||
+          lastValue === '-' ||
+          lastValue === '/'
+        )
+          return;
+        if (result !== 0) {
+          const miles = result / 1.60934;
+          setState({
+            ...caluculatorState,
+            displayValue: result.toString() + 'km' + ' ' + 'to miles',
+            result: miles % 1 === 0 ? miles : miles.toFixed(2),
+          });
+          return;
+        }
+        if (
+          lastValue === '+' ||
+          lastValue === '*' ||
+          lastValue === '-' ||
+          lastValue === '/'
+        )
+          return;
+
+        const miles = displayValue / 1.60934;
+        setState({
+          ...caluculatorState,
+          displayValue: displayValue + 'km' + ' ' + 'to miles',
+          result: miles % 1 === 0 ? miles : miles.toFixed(2),
+        });
+
+        return;
+      case 'KM':
+        const lastC = displayValue.split('').pop();
+
+        if (
+          (displayValue === '' && result === 0) ||
+          lastC === '+' ||
+          lastC === '*' ||
+          lastC === '-' ||
+          lastC === '/'
+        )
+          return;
+        if (result !== 0) {
+          const km = result * 1.60934;
+          setState({
+            ...caluculatorState,
+            displayValue: result.toString() + 'miles' + ' ' + 'to km',
+            result: km % 1 === 0 ? km : km.toFixed(2),
+          });
+          return;
+        }
+        if (lastC === '+' || lastC === '*' || lastC === '-' || lastC === '/')
+          return;
+
+        const km = displayValue * 1.60934;
+        setState({
+          ...caluculatorState,
+          displayValue: displayValue + 'miles' + ' ' + 'to Km',
+          result: km % 1 === 0 ? km : km.toFixed(2),
+        });
+
+        return;
 
       case '.':
         const dot = displayValue.toString().slice(-1);
