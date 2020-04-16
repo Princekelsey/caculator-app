@@ -1,13 +1,13 @@
-## Scienctific Calculator
+## Scientific Calculator
 
-An advance scentific calculator with calculations like<br />
+An advance scientific calculator with calculations like<br />
 sin, cos, tan, sqrt, factorial, log, pie, power, exponential and also with<br />
 addition, substration, multiplication and division operation.
 
 ## Tools
 
-React Native
-Jest
+React Native<br />
+Jest<br />
 Firebase
 
 ## Available Scripts
