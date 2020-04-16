@@ -32,10 +32,10 @@ Launches the test runner in the interactive watch mode.
 
 ## Project Plan
 
-UI design
-Test cases writing
-Calculator logic creation
-Adding logic to design
-Adding firebase
-final testing
+UI design <br />
+Test cases writing <br />
+Calculator logic creation <br />
+Adding logic to design <br />
+Adding firebase<br />
+final testing <br />
 lunching app to google play store
