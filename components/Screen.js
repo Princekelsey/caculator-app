@@ -15,7 +15,7 @@ export default class Screen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 60,
+    paddingTop: 20,
     flex: 1,
     backgroundColor: '#b2c2b3',
   },

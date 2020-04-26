@@ -6,9 +6,13 @@ export default class Key extends Component {
     return (
       <View>
         <TouchableOpacity
-          onPress={() =>
-            this.props.keyClick(this.props.keyLog, this.props.math)
-          }
+          onPress={() => {
+            if (this.props.Tag === 'History') {
+              this.props.navigation.navigate('History');
+            } else {
+              this.props.keyClick(this.props.keyLog, this.props.math);
+            }
+          }}
           style={[styles.container, this.props.style]}>
           <Text style={styles.text}>{this.props.Tag}</Text>
         </TouchableOpacity>

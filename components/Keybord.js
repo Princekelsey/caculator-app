@@ -292,7 +292,13 @@ export default class Keybord extends Component {
           />
         </View>
         <View>
-          <Key Tag="History" keyLog="0" math="log" style={styles.btnHis} />
+          <Key
+            Tag="History"
+            keyLog="0"
+            math="log"
+            style={styles.btnHis}
+            navigation={this.props.navigation}
+          />
         </View>
       </View>
     );
@@ -340,7 +346,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     width: 390,
     height: 50,
-    margin: 12,
+    marginBottom: 5,
     fontSize: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,

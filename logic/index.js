@@ -1,5 +1,6 @@
 const math = require('mathjs');
 const he = require('he');
+import Fire from '../firebase';
 
 class Calculator {
   constructor() {
@@ -79,6 +80,9 @@ class Calculator {
         result: finalResult,
         clickedEquals: true,
       });
+
+      // add to database
+      Fire.addItem(this.log, finalResult);
     } catch (error) {
       // this.setState({ log: "Syntax Error", clickedEquals: true });
     }
